@@ -13,25 +13,35 @@ const Question = () => {
         >
           <Typography
             component="div"
-            sx={{ flexGrow: 1, fontSize: "40px", padding: "9px" }}
+            fontFamily="papyrus"
+            sx={{
+              flexGrow: 1,
+              fontSize: "3rem",
+              padding: "9px",
+              "@media (max-width:768px)": {
+                fontSize: "2rem",
+              },
+              color: "#BFBFBF",
+            }}
           >
             Ask or Answer
           </Typography>
         </AppBar>
       </Box>
       {/* Navbar/ */}
-      <h1 align="center">Question</h1>
 
       <form>
         <Box
           textAlign="center"
           verticalAlign="middle"
           direction="column"
-          bgcolor="white"
-          style={{
+          bgcolor="#F7F7F7"
+          sx={{
+            padding: "8px",
             margin: "auto",
             width: "60%",
-            border: "10px solid black",
+            border: "1.5px solid yellow",
+            borderRadius: "5px",
           }}
         >
           <TextField
