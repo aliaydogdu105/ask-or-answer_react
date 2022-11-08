@@ -5,10 +5,14 @@ import Question from "./components/Question";
 import QuestionAnswerTwoTone from "@mui/icons-material/QuestionAnswerTwoTone";
 import { useState } from "react";
 
-const initialQuestion = { question: "" };
+const initialQuestion = {};
 
 function App() {
   const [addQuestion, setAddQuestion] = useState(initialQuestion);
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    // console.log(addQuestion);
+  };
 
   return (
     <div className="App">
@@ -43,7 +47,11 @@ function App() {
       >
         <span>&#8799;</span>Question<span>&#8799;</span>
       </Typography>
-      <Question addQuestion={addQuestion} setAddQuestion={setAddQuestion} />
+      <Question
+        addQuestion={addQuestion}
+        setAddQuestion={setAddQuestion}
+        handleSubmit={handleSubmit}
+      />
 
       <Typography
         variant="h4"
