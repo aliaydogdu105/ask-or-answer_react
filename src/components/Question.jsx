@@ -1,39 +1,12 @@
 import React from "react";
-import { Box, AppBar, Typography, TextField } from "@mui/material";
+import { Box, TextField } from "@mui/material";
 
-const Question = () => {
+const Question = ({ addQuestion, setAddQuestion }) => {
   return (
     <div>
-      {/* Navbar */}
-      <Box sx={{ flexGrow: 1 }}>
-        <AppBar
-          align="center"
-          position="fixed"
-          sx={{ backgroundColor: "black" }}
-        >
-          <Typography
-            component="div"
-            fontFamily="papyrus"
-            sx={{
-              flexGrow: 1,
-              fontSize: "3rem",
-              padding: "9px",
-              "@media (max-width:768px)": {
-                fontSize: "2rem",
-              },
-              color: "#BFBFBF",
-            }}
-          >
-            Ask or Answer
-          </Typography>
-        </AppBar>
-      </Box>
-      {/* Navbar/ */}
-
       <form>
         <Box
           textAlign="center"
-          verticalAlign="middle"
           direction="column"
           bgcolor="#F7F7F7"
           sx={{

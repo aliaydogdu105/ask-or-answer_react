@@ -1,48 +1,53 @@
-import { Typography } from "@mui/material";
+import { AppBar, Box, Typography } from "@mui/material";
 import "./App.css";
 import Answer from "./components/Answer";
 import Question from "./components/Question";
 import QuestionAnswerTwoTone from "@mui/icons-material/QuestionAnswerTwoTone";
+import { useState } from "react";
 
-let qa = [
-  {
-    id: "1",
-    question: "question 1",
-    answer: "answer 1",
-  },
-  {
-    id: "2",
-    question: "question 2",
-    answer: "answer 2",
-  },
-  {
-    id: "3",
-    question: "question 3",
-    answer: "answer 3",
-  },
-  {
-    id: "4",
-    question: "question 4",
-    answer: "answer 4",
-  },
-];
+const initialQuestion = { question: "" };
 
 function App() {
+  const [addQuestion, setAddQuestion] = useState(initialQuestion);
+
   return (
     <div className="App">
+      <Box sx={{ flexGrow: 1 }}>
+        <AppBar
+          align="center"
+          position="fixed"
+          sx={{ backgroundColor: "black" }}
+        >
+          <Typography
+            component="div"
+            fontFamily="Papyrus"
+            sx={{
+              flexGrow: 1,
+              fontSize: "3rem",
+              padding: "9px",
+              "@media (max-width:768px)": {
+                fontSize: "2rem",
+              },
+              color: "#BFBFBF",
+            }}
+          >
+            Ask or Answer
+          </Typography>
+        </AppBar>
+      </Box>
       <Typography
         variant="h4"
-        fontFamily="papyrus"
+        fontFamily="Papyrus"
         align="center"
         sx={{ margin: "10px" }}
       >
         <span>&#8799;</span>Question<span>&#8799;</span>
       </Typography>
-      <Question />
+      <Question addQuestion={addQuestion} setAddQuestion={setAddQuestion} />
 
       <Typography
         variant="h4"
-        fontFamily="papyrus"
+        fontFamily="Papyrus"
         align="center"
         sx={{ margin: "10px" }}
       >
@@ -52,9 +57,7 @@ function App() {
         </span>
       </Typography>
       <div>
-        {qa.map(function ({ question, answer }) {
-          return <Answer question={question} answer={answer} />;
-        })}
+        <Answer />
       </div>
     </div>
   );
