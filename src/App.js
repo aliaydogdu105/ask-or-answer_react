@@ -4,14 +4,16 @@ import Answer from "./components/Answer";
 import Question from "./components/Question";
 import QuestionAnswerTwoTone from "@mui/icons-material/QuestionAnswerTwoTone";
 import { useState } from "react";
+import { AddQuestion } from "./utils/functions";
 
-const initialQuestion = {};
+const initialQuestion = { question: "" };
 
 function App() {
   const [addQuestion, setAddQuestion] = useState(initialQuestion);
   const handleSubmit = (e) => {
     e.preventDefault();
     // console.log(addQuestion);
+    AddQuestion(addQuestion);
   };
 
   return (

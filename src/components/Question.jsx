@@ -30,8 +30,8 @@ const Question = ({ addQuestion, setAddQuestion, handleSubmit }) => {
             id="outlined-basic"
             label="Ask your question"
             variant="outlined"
-            name="question:"
-            value={addQuestion.Question}
+            name="question"
+            value={addQuestion.question}
             onChange={handleChange}
             autoComplete="off"
             align="center"
