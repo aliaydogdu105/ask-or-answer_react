@@ -4,10 +4,9 @@ import { Box, TextField } from "@mui/material";
 const Question = ({ addQuestion, setAddQuestion, handleSubmit }) => {
   const handleChange = (e) => {
     e.preventDefault();
-    const ask = e.target.name;
-    const value = e.target.value;
-    // console.log(ask, value);
-    setAddQuestion({ ...addQuestion, [ask]: value });
+    const { name, value } = e.target;
+    console.log(name, value);
+    setAddQuestion({ ...addQuestion, [name]: value });
     // console.log(addQuestion);
   };
 

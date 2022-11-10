@@ -1,26 +1,46 @@
 import React from "react";
-import Card from "@mui/material/Card";
-import CardContent from "@mui/material/CardContent";
-import Typography from "@mui/material/Typography";
-import FavoriteIcon from "@mui/icons-material/Favorite";
-import { CardActionArea } from "@mui/material";
+
+import { Card, CardActionArea, CardContent, Typography } from "@mui/material";
+import { useFetch } from "../utils/functions";
+import AnswerInput from "./AnswerInput";
 
 const Answer = () => {
+  const { isLoading, inCard } = useFetch();
+  // console.log(inCard);
+
   return (
-    <div>
-      <Card sx={{ width: "400px" }}>
-        <CardActionArea>
-          <CardContent>
-            <Typography gutterBottom variant="h5" component="div">
-              Soru
-            </Typography>
-            <Typography variant="body2" color="text.secondary">
-              Cevap
-            </Typography>
-          </CardContent>
-          <FavoriteIcon />
-        </CardActionArea>
-      </Card>
+    <div
+      style={{
+        display: "flex",
+        justifyContent: "space-around",
+        flexWrap: "wrap",
+      }}
+    >
+      {isLoading ? (
+        <Typography gutterBottom variant="h5" component="div">
+          Loading
+        </Typography>
+      ) : inCard?.length === 0 ? (
+        <Typography variant="body2" color="text.secondary">
+          NO RESULT FOUND
+        </Typography>
+      ) : (
+        inCard?.map((item, index) => (
+          <Card key={index} sx={{ maxWidth: 400, marginBottom: "20px" }}>
+            <CardActionArea>
+              <CardContent>
+                <Typography gutterBottom variant="h5" component="div">
+                  {item.question}
+                </Typography>
+                <AnswerInput />
+                <Typography variant="body2" color="text.secondary">
+                  answers
+                </Typography>
+              </CardContent>
+            </CardActionArea>
+          </Card>
+        ))
+      )}
     </div>
   );
 };

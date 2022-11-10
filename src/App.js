@@ -10,10 +10,12 @@ const initialQuestion = { question: "" };
 
 function App() {
   const [addQuestion, setAddQuestion] = useState(initialQuestion);
+
   const handleSubmit = (e) => {
     e.preventDefault();
     // console.log(addQuestion);
     AddQuestion(addQuestion);
+    setAddQuestion(initialQuestion);
   };
 
   return (
@@ -45,7 +47,13 @@ function App() {
         variant="h4"
         fontFamily="Papyrus"
         align="center"
-        sx={{ margin: "10px" }}
+        sx={{
+          margin: " 0.5rem auto",
+          padding: "5px",
+          backgroundColor: "yellow",
+          width: "fit-content",
+          borderRadius: "15px",
+        }}
       >
         <span>&#8799;</span>Question<span>&#8799;</span>
       </Typography>
@@ -59,7 +67,13 @@ function App() {
         variant="h4"
         fontFamily="Papyrus"
         align="center"
-        sx={{ margin: "10px" }}
+        sx={{
+          margin: " 0.5rem auto",
+          padding: "5px",
+          backgroundColor: "pink",
+          width: "fit-content",
+          borderRadius: "15px",
+        }}
       >
         Answer
         <span>
