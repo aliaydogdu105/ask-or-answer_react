@@ -4,7 +4,13 @@ import React from "react";
 const AnswerInput = () => {
   return (
     <div>
-      <form style={{ backgroundColor: "red", width: "100%" }}>
+      <form
+        style={{
+          backgroundColor: "Beige",
+          width: "100%",
+          borderRadius: "5px",
+        }}
+      >
         <Box
           textAlign="center"
           direction="column"
@@ -12,7 +18,7 @@ const AnswerInput = () => {
           sx={{
             padding: "8px",
             margin: "auto",
-            width: "50%",
+            width: "90%",
             border: "1.5px solid gray",
             borderRadius: "5px",
           }}

@@ -14,6 +14,7 @@ const Answer = () => {
         display: "flex",
         justifyContent: "space-around",
         flexWrap: "wrap",
+        textAlign: "center",
       }}
     >
       {isLoading ? (
@@ -26,7 +27,10 @@ const Answer = () => {
         </Typography>
       ) : (
         inCard?.map((item, index) => (
-          <Card key={index} sx={{ maxWidth: 400, marginBottom: "20px" }}>
+          <Card
+            key={index}
+            sx={{ maxWidth: 400, marginY: "20px", minHeight: 250 }}
+          >
             <CardActionArea>
               <CardContent>
                 <Typography gutterBottom variant="h5" component="div">
