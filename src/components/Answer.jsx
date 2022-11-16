@@ -1,10 +1,14 @@
-import React from "react";
+import {
+  Button,
+  Card,
+  CardActionArea,
+  CardContent,
+  Typography,
+} from "@mui/material";
+import DeleteForeverIcon from "@mui/icons-material/DeleteForever";
+import { useFetch, DeleteQuestion } from "../utils/functions";
 
-import { Card, CardActionArea, CardContent, Typography } from "@mui/material";
-import { useFetch } from "../utils/functions";
-import AnswerInput from "./AnswerInput";
-
-const Answer = () => {
+const Answer = ({ myAnswer }) => {
   const { isLoading, inCard } = useFetch();
   // console.log(inCard);
 
@@ -34,11 +38,28 @@ const Answer = () => {
             <CardActionArea>
               <CardContent>
                 <Typography gutterBottom variant="h5" component="div">
-                  {item.question}
+                  {item.question}???
                 </Typography>
-                <AnswerInput />
+
+                <Button
+                  id="modal-modal-description"
+                  sx={{ mt: 2 }}
+                  onClick={() => myAnswer(item.id, item.answer, item.question)}
+                >
+                  Let's answer
+                </Button>
+
                 <Typography variant="body2" color="text.secondary">
-                  answers
+                  <span>&#10547; </span>
+                  {item.answer}
+                </Typography>
+
+                <Typography
+                  variant="p"
+                  component="div"
+                  onClick={() => DeleteQuestion(item.id)}
+                >
+                  <DeleteForeverIcon />
                 </Typography>
               </CardContent>
             </CardActionArea>

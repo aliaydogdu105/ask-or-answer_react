@@ -4,9 +4,9 @@ import Answer from "./components/Answer";
 import Question from "./components/Question";
 import QuestionAnswerTwoTone from "@mui/icons-material/QuestionAnswerTwoTone";
 import { useState } from "react";
-import { AddQuestion } from "./utils/functions";
+import { AddQuestion, LastAnswer } from "./utils/functions";
 
-const initialQuestion = { question: "" };
+const initialQuestion = { question: "", answer: "" };
 
 function App() {
   const [addQuestion, setAddQuestion] = useState(initialQuestion);
@@ -14,8 +14,17 @@ function App() {
   const handleSubmit = (e) => {
     e.preventDefault();
     // console.log(addQuestion);
-    AddQuestion(addQuestion);
+    if (addQuestion.id) {
+      LastAnswer(addQuestion);
+    } else {
+      AddQuestion(addQuestion);
+    }
+    // setAddQuestion(initialQuestion);
     setAddQuestion(initialQuestion);
+  };
+
+  const myAnswer = (id, answer, question) => {
+    setAddQuestion({ id, answer, question });
   };
 
   return (
@@ -81,7 +90,7 @@ function App() {
         </span>
       </Typography>
       <div>
-        <Answer />
+        <Answer myAnswer={myAnswer} />
       </div>
     </div>
   );
