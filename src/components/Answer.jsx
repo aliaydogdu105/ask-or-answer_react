@@ -33,23 +33,38 @@ const Answer = ({ myAnswer }) => {
         inCard?.map((item, index) => (
           <Card
             key={index}
-            sx={{ maxWidth: 400, marginY: "20px", minHeight: 250 }}
+            sx={{
+              width: 400,
+              minHeight: 250,
+              marginY: "20px",
+            }}
           >
             <CardActionArea>
-              <CardContent>
-                <Typography gutterBottom variant="h5" component="div">
+              <CardContent sx={{ height: 300, display: "grid", gap: "2" }}>
+                <Typography
+                  gutterBottom
+                  variant="h5"
+                  component="div"
+                  sx={{ margin: "auto" }}
+                >
                   {item.question}???
                 </Typography>
 
                 <Button
                   id="modal-modal-description"
-                  sx={{ mt: 2 }}
+                  sx={{ mt: 2, bgcolor: "lightgray", height: 50 }}
                   onClick={() => myAnswer(item.id, item.answer, item.question)}
                 >
                   Let's answer
                 </Button>
 
-                <Typography variant="body2" color="text.secondary">
+                <Typography
+                  variant="h6"
+                  color="text.secondary"
+                  sx={{
+                    marginY: "auto",
+                  }}
+                >
                   <span>&#10547; </span>
                   {item.answer}
                 </Typography>
@@ -58,6 +73,9 @@ const Answer = ({ myAnswer }) => {
                   variant="p"
                   component="div"
                   onClick={() => DeleteQuestion(item.id)}
+                  sx={{
+                    marginY: "auto",
+                  }}
                 >
                   <DeleteForeverIcon />
                 </Typography>
