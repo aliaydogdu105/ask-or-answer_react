@@ -21,7 +21,7 @@ const Answer = ({ myAnswer, handleSubmit, addQuestion, handleChange }) => {
           Loading
         </Typography>
       ) : inCard?.length === 0 ? (
-        <Typography variant="body2" color="text.secondary">
+        <Typography variant="h4" marginTop="10vh" color="text.secondary">
           NO RESULT FOUND
         </Typography>
       ) : (
@@ -29,10 +29,13 @@ const Answer = ({ myAnswer, handleSubmit, addQuestion, handleChange }) => {
           <Card
             key={index}
             sx={{
-              width: 300,
+              width: 380,
               minHeight: 250,
               marginY: "20px",
               backgroundColor: "#F2F2F2",
+              "@media (max-width:768px)": {
+                width: 310,
+              },
             }}
           >
             <CardActionArea>
@@ -41,7 +44,13 @@ const Answer = ({ myAnswer, handleSubmit, addQuestion, handleChange }) => {
                   gutterBottom
                   variant="h5"
                   component="div"
-                  sx={{ margin: "auto" }}
+                  sx={{
+                    margin: "auto",
+                    width: "100%",
+                    maxHeight: "100px",
+                    overflow: "auto",
+                    overflowWrap: "break-word",
+                  }}
                 >
                   {item.question}???
                 </Typography>
@@ -58,8 +67,13 @@ const Answer = ({ myAnswer, handleSubmit, addQuestion, handleChange }) => {
                   variant="h5"
                   color="text.secondary"
                   sx={{
-                    marginY: "auto",
-                    border: "1px solid black",
+                    width: "maxWidth",
+                    maxHeight: "100px",
+                    overflow: "auto",
+                    overflowWrap: "break-word",
+                    padding: "3px",
+                    bgcolor: "#EAF2CE",
+                    borderRadius: "10px",
                   }}
                 >
                   <span>&#10547; </span>
@@ -73,7 +87,15 @@ const Answer = ({ myAnswer, handleSubmit, addQuestion, handleChange }) => {
                     marginY: "auto",
                   }}
                 >
-                  <DeleteForeverIcon onClick={() => DeleteQuestion(item.id)} />
+                  <DeleteForeverIcon
+                    sx={{
+                      transition: "transform ease-in-out 0.15s",
+                      "&:hover": {
+                        transform: "scale(2)",
+                      },
+                    }}
+                    onClick={() => DeleteQuestion(item.id)}
+                  />
                 </Typography>
               </CardContent>
             </CardActionArea>

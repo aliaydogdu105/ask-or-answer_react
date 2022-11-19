@@ -5,6 +5,7 @@ import Question from "./components/Question";
 import QuestionAnswerTwoTone from "@mui/icons-material/QuestionAnswerTwoTone";
 import { useState } from "react";
 import { AddQuestion, LastAnswer } from "./utils/functions";
+import { ToastContainer } from "react-toastify";
 
 const initialQuestion = { question: "", answer: "" };
 
@@ -67,8 +68,8 @@ function App() {
         sx={{
           margin: " 0.5rem auto",
           padding: "5px",
-          backgroundColor: "yellow",
-          width: "fit-content",
+          backgroundColor: "#F2CB05",
+          width: 250,
           borderRadius: "15px",
         }}
       >
@@ -87,8 +88,8 @@ function App() {
         sx={{
           margin: " 0.5rem auto",
           padding: "5px",
-          backgroundColor: "pink",
-          width: "fit-content",
+          backgroundColor: "#91D7F2",
+          width: 250,
           borderRadius: "15px",
         }}
       >
@@ -105,6 +106,7 @@ function App() {
           handleChange={handleChange}
         />
       </div>
+      <ToastContainer />
     </div>
   );
 }

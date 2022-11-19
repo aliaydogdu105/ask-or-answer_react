@@ -11,9 +11,12 @@ const Question = ({ addQuestion, handleSubmit, handleChange }) => {
         sx={{
           padding: "8px",
           margin: "auto",
-          width: "70%",
+          width: 800,
           border: "1.5px solid yellow",
           borderRadius: "5px",
+          "@media (max-width:768px)": {
+            width: 300,
+          },
         }}
       >
         <form onSubmit={handleSubmit}>
@@ -32,7 +35,6 @@ const Question = ({ addQuestion, handleSubmit, handleChange }) => {
           <Button
             sx={{
               width: 100,
-              marginX: 30,
               "&:hover": {
                 color: "#CCEA8D",
                 backgroundColor: "#01415B",

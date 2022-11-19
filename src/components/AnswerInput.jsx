@@ -11,14 +11,18 @@ import {
 
 const style = {
   position: "absolute",
-  top: "35%",
+  top: "40%",
   left: "50%",
   transform: "translate(-50%, -50%)",
-  width: 600,
+  width: 800,
   bgcolor: "background.paper",
   border: "2px solid #000",
+  borderRadius: "10px",
   boxShadow: 24,
   p: 4,
+  "@media (max-width:768px)": {
+    width: 220,
+  },
 };
 
 export default function AnswerInput({
@@ -46,7 +50,7 @@ export default function AnswerInput({
           mt: 2,
           color: "#323859",
           backgroundColor: "#85D982",
-          height: 50,
+          height: 35,
           "&:hover": {
             color: "#85D982",
             backgroundColor: "#323859",
@@ -69,14 +73,14 @@ export default function AnswerInput({
         }}
       >
         <Fade in={open}>
-          <Box sx={style}>
+          <Box textAlign="center" sx={style}>
             <form onSubmit={handleSubmit}>
               <Typography gutterBottom variant="h5" component="div">
                 {item.question}???
               </Typography>
               <TextField
                 id="outlined-basic"
-                label="Ask your answer"
+                label="Write the answer"
                 variant="outlined"
                 name="answer"
                 value={addQuestion.answer}
@@ -91,8 +95,6 @@ export default function AnswerInput({
                 value="Submit"
                 onClick={handleClose}
                 sx={{
-                  width: 100,
-                  marginX: 30,
                   "&:hover": {
                     color: "#CCEA8D",
                     backgroundColor: "#01415B",

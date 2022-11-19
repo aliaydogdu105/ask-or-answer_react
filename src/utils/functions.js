@@ -9,6 +9,7 @@ import {
   update,
 } from "firebase/database";
 import { useEffect, useState } from "react";
+import Toastify from "./toastify";
 
 // add
 
@@ -20,6 +21,7 @@ export const AddQuestion = (addQuestion) => {
     question: addQuestion.question,
     answer: addQuestion.answer,
   });
+  Toastify("Question added");
 };
 
 // get
@@ -48,6 +50,7 @@ export const useFetch = () => {
 
 export const DeleteQuestion = (id) => {
   const db = getDatabase(firebase);
+  Toastify("Card deleted");
   remove(ref(db, "ask/" + id));
 };
 
@@ -55,5 +58,6 @@ export const LastAnswer = (addQuestion) => {
   const db = getDatabase(firebase);
   const answers = {};
   answers["ask/" + addQuestion.id] = addQuestion;
+  Toastify("Answered");
   return update(ref(db), answers);
 };
