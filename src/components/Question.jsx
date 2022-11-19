@@ -1,15 +1,7 @@
 import React from "react";
 import { Box, Button, TextField } from "@mui/material";
 
-const Question = ({ addQuestion, setAddQuestion, handleSubmit }) => {
-  const handleChange = (e) => {
-    e.preventDefault();
-    const { name, value } = e.target;
-    // console.log(name, value);
-    setAddQuestion({ ...addQuestion, [name]: value });
-    // console.log(addQuestion);
-  };
-
+const Question = ({ addQuestion, handleSubmit, handleChange }) => {
   return (
     <div>
       <Box
@@ -19,7 +11,7 @@ const Question = ({ addQuestion, setAddQuestion, handleSubmit }) => {
         sx={{
           padding: "8px",
           margin: "auto",
-          width: "60%",
+          width: "70%",
           border: "1.5px solid yellow",
           borderRadius: "5px",
         }}
@@ -34,20 +26,23 @@ const Question = ({ addQuestion, setAddQuestion, handleSubmit }) => {
             onChange={handleChange}
             autoComplete="off"
             align="center"
-            sx={{ width: "100%" }}
+            sx={{ width: "100%", marginBottom: "8px" }}
+            required
           />
-          <TextField
-            id="outlined-basic"
-            label="Ask your answer"
-            variant="outlined"
-            name="answer"
-            value={addQuestion.answer}
-            onChange={handleChange}
-            autoComplete="off"
-            align="center"
-            sx={{ width: "10%" }}
-          />
-          <Button variant="contained" type="submit" value="Submit">
+          <Button
+            sx={{
+              width: 100,
+              marginX: 30,
+              "&:hover": {
+                color: "#CCEA8D",
+                backgroundColor: "#01415B",
+                scale: "1.05",
+              },
+            }}
+            variant="contained"
+            type="submit"
+            value="Submit"
+          >
             Send
           </Button>
         </form>

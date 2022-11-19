@@ -23,6 +23,14 @@ function App() {
     setAddQuestion(initialQuestion);
   };
 
+  const handleChange = (e) => {
+    e.preventDefault();
+    const { name, value } = e.target;
+    // console.log(name, value);
+    setAddQuestion({ ...addQuestion, [name]: value });
+    // console.log(addQuestion);
+  };
+
   const myAnswer = (id, answer, question) => {
     setAddQuestion({ id, answer, question });
   };
@@ -68,8 +76,8 @@ function App() {
       </Typography>
       <Question
         addQuestion={addQuestion}
-        setAddQuestion={setAddQuestion}
         handleSubmit={handleSubmit}
+        handleChange={handleChange}
       />
 
       <Typography
@@ -90,7 +98,12 @@ function App() {
         </span>
       </Typography>
       <div>
-        <Answer myAnswer={myAnswer} />
+        <Answer
+          myAnswer={myAnswer}
+          handleSubmit={handleSubmit}
+          addQuestion={addQuestion}
+          handleChange={handleChange}
+        />
       </div>
     </div>
   );

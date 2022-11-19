@@ -1,14 +1,9 @@
-import {
-  Button,
-  Card,
-  CardActionArea,
-  CardContent,
-  Typography,
-} from "@mui/material";
+import { Card, CardActionArea, CardContent, Typography } from "@mui/material";
 import DeleteForeverIcon from "@mui/icons-material/DeleteForever";
 import { useFetch, DeleteQuestion } from "../utils/functions";
+import AnswerInput from "./AnswerInput";
 
-const Answer = ({ myAnswer }) => {
+const Answer = ({ myAnswer, handleSubmit, addQuestion, handleChange }) => {
   const { isLoading, inCard } = useFetch();
   // console.log(inCard);
 
@@ -34,13 +29,14 @@ const Answer = ({ myAnswer }) => {
           <Card
             key={index}
             sx={{
-              width: 400,
+              width: 300,
               minHeight: 250,
               marginY: "20px",
+              backgroundColor: "#F2F2F2",
             }}
           >
             <CardActionArea>
-              <CardContent sx={{ height: 300, display: "grid", gap: "2" }}>
+              <CardContent sx={{ height: 250, display: "grid" }}>
                 <Typography
                   gutterBottom
                   variant="h5"
@@ -50,19 +46,20 @@ const Answer = ({ myAnswer }) => {
                   {item.question}???
                 </Typography>
 
-                <Button
-                  id="modal-modal-description"
-                  sx={{ mt: 2, bgcolor: "lightgray", height: 50 }}
-                  onClick={() => myAnswer(item.id, item.answer, item.question)}
-                >
-                  Let's answer
-                </Button>
+                <AnswerInput
+                  myAnswer={myAnswer}
+                  item={item}
+                  handleSubmit={handleSubmit}
+                  addQuestion={addQuestion}
+                  handleChange={handleChange}
+                />
 
                 <Typography
-                  variant="h6"
+                  variant="h5"
                   color="text.secondary"
                   sx={{
                     marginY: "auto",
+                    border: "1px solid black",
                   }}
                 >
                   <span>&#10547; </span>
@@ -72,12 +69,11 @@ const Answer = ({ myAnswer }) => {
                 <Typography
                   variant="p"
                   component="div"
-                  onClick={() => DeleteQuestion(item.id)}
                   sx={{
                     marginY: "auto",
                   }}
                 >
-                  <DeleteForeverIcon />
+                  <DeleteForeverIcon onClick={() => DeleteQuestion(item.id)} />
                 </Typography>
               </CardContent>
             </CardActionArea>
