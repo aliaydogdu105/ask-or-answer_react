@@ -25,82 +25,84 @@ const Answer = ({ myAnswer, handleSubmit, addQuestion, handleChange }) => {
           NO RESULT FOUND
         </Typography>
       ) : (
-        inCard?.map((item, index) => (
-          <Card
-            key={index}
-            sx={{
-              width: 380,
-              minHeight: 250,
-              marginY: "20px",
-              backgroundColor: "#F2F2F2",
-              "@media (max-width:768px)": {
-                width: 310,
-              },
-            }}
-          >
-            <CardActionArea>
-              <CardContent sx={{ height: 250, display: "grid" }}>
-                <Typography
-                  gutterBottom
-                  variant="h5"
-                  component="div"
-                  sx={{
-                    margin: "auto",
-                    width: "100%",
-                    maxHeight: "100px",
-                    overflow: "auto",
-                    overflowWrap: "break-word",
-                  }}
-                >
-                  {item.question}???
-                </Typography>
-
-                <AnswerInput
-                  myAnswer={myAnswer}
-                  item={item}
-                  handleSubmit={handleSubmit}
-                  addQuestion={addQuestion}
-                  handleChange={handleChange}
-                />
-
-                <Typography
-                  variant="h5"
-                  color="text.secondary"
-                  sx={{
-                    width: "maxWidth",
-                    maxHeight: "100px",
-                    overflow: "auto",
-                    overflowWrap: "break-word",
-                    padding: "3px",
-                    bgcolor: "#EAF2CE",
-                    borderRadius: "10px",
-                  }}
-                >
-                  <span>&#10547; </span>
-                  {item.answer}
-                </Typography>
-
-                <Typography
-                  variant="p"
-                  component="div"
-                  sx={{
-                    marginY: "auto",
-                  }}
-                >
-                  <DeleteForeverIcon
+        inCard
+          ?.map((item, index) => (
+            <Card
+              key={index}
+              sx={{
+                width: 380,
+                minHeight: 250,
+                marginY: "20px",
+                backgroundColor: "#F2F2F2",
+                "@media (max-width:768px)": {
+                  width: 310,
+                },
+              }}
+            >
+              <CardActionArea>
+                <CardContent sx={{ height: 250, display: "grid" }}>
+                  <Typography
+                    gutterBottom
+                    variant="h5"
+                    component="div"
                     sx={{
-                      transition: "transform ease-in-out 0.15s",
-                      "&:hover": {
-                        transform: "scale(2)",
-                      },
+                      margin: "auto",
+                      width: "100%",
+                      maxHeight: "100px",
+                      overflow: "auto",
+                      overflowWrap: "break-word",
                     }}
-                    onClick={() => DeleteQuestion(item.id)}
+                  >
+                    {item.question}???
+                  </Typography>
+
+                  <AnswerInput
+                    myAnswer={myAnswer}
+                    item={item}
+                    handleSubmit={handleSubmit}
+                    addQuestion={addQuestion}
+                    handleChange={handleChange}
                   />
-                </Typography>
-              </CardContent>
-            </CardActionArea>
-          </Card>
-        ))
+
+                  <Typography
+                    variant="h5"
+                    color="text.secondary"
+                    sx={{
+                      width: "maxWidth",
+                      maxHeight: "100px",
+                      overflow: "auto",
+                      overflowWrap: "break-word",
+                      padding: "3px",
+                      bgcolor: "#EAF2CE",
+                      borderRadius: "10px",
+                    }}
+                  >
+                    <span>&#10547; </span>
+                    {item.answer}
+                  </Typography>
+
+                  <Typography
+                    variant="p"
+                    component="div"
+                    sx={{
+                      marginY: "auto",
+                    }}
+                  >
+                    <DeleteForeverIcon
+                      sx={{
+                        transition: "transform ease-in-out 0.15s",
+                        "&:hover": {
+                          transform: "scale(2)",
+                        },
+                      }}
+                      onClick={() => DeleteQuestion(item.id)}
+                    />
+                  </Typography>
+                </CardContent>
+              </CardActionArea>
+            </Card>
+          ))
+          .reverse()
       )}
     </div>
   );

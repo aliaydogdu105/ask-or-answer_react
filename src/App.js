@@ -6,6 +6,9 @@ import QuestionAnswerTwoTone from "@mui/icons-material/QuestionAnswerTwoTone";
 import { useState } from "react";
 import { AddQuestion, LastAnswer } from "./utils/functions";
 import { ToastContainer } from "react-toastify";
+import LinkedInIcon from "@mui/icons-material/LinkedIn";
+import GitHubIcon from "@mui/icons-material/GitHub";
+import EmailIcon from "@mui/icons-material/Email";
 
 const initialQuestion = { question: "", answer: "" };
 
@@ -107,6 +110,19 @@ function App() {
         />
       </div>
       <ToastContainer />
+      <Box sx={{ flexGrow: 1 }}>
+        <AppBar
+          align="center"
+          position="fixed-bottom"
+          sx={{ backgroundColor: "black" }}
+        >
+          <span>
+            <LinkedInIcon />
+            <GitHubIcon />
+            <EmailIcon />
+          </span>
+        </AppBar>
+      </Box>
     </div>
   );
 }
