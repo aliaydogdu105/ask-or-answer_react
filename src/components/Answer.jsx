@@ -21,7 +21,12 @@ const Answer = ({ myAnswer, handleSubmit, addQuestion, handleChange }) => {
           Loading
         </Typography>
       ) : inCard?.length === 0 ? (
-        <Typography variant="h4" marginTop="10vh" color="text.secondary">
+        <Typography
+          variant="h4"
+          marginTop="5vh"
+          padding="18vh"
+          color="text.secondary"
+        >
           NO RESULT FOUND
         </Typography>
       ) : (

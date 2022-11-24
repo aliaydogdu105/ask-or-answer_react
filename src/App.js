@@ -1,4 +1,4 @@
-import { AppBar, Box, Typography } from "@mui/material";
+import { AppBar, Box, Link, Typography } from "@mui/material";
 import "./App.css";
 import Answer from "./components/Answer";
 import Question from "./components/Question";
@@ -45,7 +45,9 @@ function App() {
         <AppBar
           align="center"
           position="fixed"
-          sx={{ backgroundColor: "black" }}
+          sx={{
+            background: "linear-gradient(90deg, #282B59, #0D0D0D, #282B59)",
+          }}
         >
           <Typography
             component="div"
@@ -83,7 +85,6 @@ function App() {
         handleSubmit={handleSubmit}
         handleChange={handleChange}
       />
-
       <Typography
         variant="h4"
         fontFamily="Papyrus"
@@ -110,17 +111,63 @@ function App() {
         />
       </div>
       <ToastContainer />
+
+      {/* footer */}
+
       <Box sx={{ flexGrow: 1 }}>
         <AppBar
           align="center"
-          position="fixed-bottom"
-          sx={{ backgroundColor: "black" }}
+          position="bottom"
+          sx={{
+            backgroundColor: "black",
+            padding: 2,
+          }}
         >
-          <span>
-            <LinkedInIcon />
-            <GitHubIcon />
-            <EmailIcon />
-          </span>
+          <Box>
+            <Link
+              href="https://www.linkedin.com/in/aliaydogdu/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <LinkedInIcon
+                sx={{
+                  fontSize: 40,
+                  "&:hover": {
+                    color: "rgb(7, 177, 77, 0.42)",
+                  },
+                }}
+              />
+            </Link>
+            <Link
+              href="https://github.com/aliaydogdu105"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <GitHubIcon
+                sx={{
+                  fontSize: 40,
+                  marginX: 2,
+                  "&:hover": {
+                    color: "rgb(7, 177, 77, 0.42)",
+                  },
+                }}
+              />
+            </Link>
+            <Link
+              href="mailto:aliaydogdu105@gmail.com"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <EmailIcon
+                sx={{
+                  fontSize: 40,
+                  "&:hover": {
+                    color: "rgb(7, 177, 77, 0.42)",
+                  },
+                }}
+              />
+            </Link>
+          </Box>
         </AppBar>
       </Box>
     </div>
