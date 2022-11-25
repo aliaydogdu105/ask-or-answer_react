@@ -9,6 +9,7 @@ import { ToastContainer } from "react-toastify";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import EmailIcon from "@mui/icons-material/Email";
+import BackToTop from "./components/BackToTop";
 
 const initialQuestion = { question: "", answer: "" };
 
@@ -110,7 +111,9 @@ function App() {
           handleChange={handleChange}
         />
       </div>
+
       <ToastContainer />
+      <BackToTop />
 
       {/* footer */}
 

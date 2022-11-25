@@ -56,6 +56,10 @@ const Answer = ({ myAnswer, handleSubmit, addQuestion, handleChange }) => {
                       maxHeight: "100px",
                       overflow: "auto",
                       overflowWrap: "break-word",
+                      textTransform: "lowercase",
+                      "&::first-letter": {
+                        textTransform: "uppercase",
+                      },
                     }}
                   >
                     {item.question}???
@@ -80,10 +84,14 @@ const Answer = ({ myAnswer, handleSubmit, addQuestion, handleChange }) => {
                       padding: "3px",
                       bgcolor: "#EAF2CE",
                       borderRadius: "10px",
+                      textTransform: "lowercase",
+                      "&::first-letter": {
+                        textTransform: "uppercase",
+                      },
                     }}
                   >
-                    <span>&#10547; </span>
                     {item.answer}
+                    <span> &#10557;</span>
                   </Typography>
 
                   <Typography
