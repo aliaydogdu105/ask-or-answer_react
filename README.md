@@ -1,3 +1,39 @@
+# Ask or Answer App
+
+This project was made with React. Styled with "Material UI" and responsive design for mobile phones and web. Firebase was used for the backend in the project. A random image from `https://picsum.photos/1600/900` was used for the background image. Used React-toastify for "question added", "answer added" and "card deleted" notifications.
+
+
+For look [please click here](https://ask-or-answer-react-ali.netlify.app/)
+
+![](ask-or-answer-app.gif)
+
+## Project Skeleton
+
+```
+Ask or Answer App 
+|       
+├── public
+│     └── index.html
+├── src
+│    ├── components
+│    │       ├── Answer.jsx
+│    │       │     └── AnswerInput.jsx
+│    │       ├── Question.jsx
+│    │       └── BackToTop.jsx
+│    ├── utils
+│    │       ├── firebase.js
+│    │       ├── function.js
+│    │       └── toastify.js
+│    ├── App.js
+│    ├── App.css
+│    ├── index.js
+│    └── index.css
+|----README.md 
+├── recipe-app.gif
+├── package.json
+└── yarn.lock
+```
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
