@@ -2,7 +2,6 @@
 
 This project was made with React. Styled with "Material UI" and responsive design for mobile phones and web. Firebase was used for the backend in the project. A random image from `https://picsum.photos/1600/900` was used for the background image. Used React-toastify for "question added", "answer added" and "card deleted" notifications.
 
-
 For look [please click here](https://ask-or-answer-react-ali.netlify.app/)
 
 ![](ask-or-answer-app.gif)
@@ -10,8 +9,8 @@ For look [please click here](https://ask-or-answer-react-ali.netlify.app/)
 ## Project Skeleton
 
 ```
-Ask or Answer App 
-|       
+Ask or Answer App
+|
 ├── public
 │     └── index.html
 ├── src
@@ -28,8 +27,9 @@ Ask or Answer App
 │    ├── App.css
 │    ├── index.js
 │    └── index.css
-|----README.md 
-├── recipe-app.gif
+|----README.md
+├── ask-or-answer-app.gif
+├── .gitignore
 ├── package.json
 └── yarn.lock
 ```
@@ -104,4 +104,5 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `yarn build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
 # ask-or-answer_react
