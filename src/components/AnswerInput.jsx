@@ -94,6 +94,7 @@ export default function AnswerInput({
                 type="submit"
                 value="Submit"
                 onClick={handleClose}
+                disabled={!addQuestion.answer}
                 sx={{
                   "&:hover": {
                     color: "#CCEA8D",
